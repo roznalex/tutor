@@ -2,6 +2,12 @@ const nconf = require('nconf');
 const path = require('path');
 
 class Config {
+  /**
+   * @param {Object} options
+   * @param {String} options.env
+   * @param {String} options.dir
+   * @return {Object}
+   */
   constructor(options = {}) {
     const { env, dir } = options;
 
@@ -22,6 +28,14 @@ class Config {
       .file({
         file: path.join(dir, `${env}.json`),
       });
+
+    this.env = env.toLowerCase();
+    this.get = nconf.get.bind(nconf);
+    this.set = nconf.set.bind(nconf);
+  }
+
+  static create(options) {
+    return new Config(options);
   }
 }
 

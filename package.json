@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "export NODE_PATH=. && export NODE_ENV=dev && node .",
+    "start": "export NODE_ENV=dev && nodemon ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.4",
-    "nconf": "^0.8.4"
+    "nconf": "^0.8.4",
+    "winston": "^2.3.1"
   }
 }

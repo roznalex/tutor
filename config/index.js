@@ -1,8 +1,7 @@
 const path = require('path');
+const Config = require('../engine/Config');
 
-const Config = require('engine/Config');
-
-module.exports = new Config({
+module.exports = Config.create({
   dir: path.join(process.cwd(), 'config'),
   env: process.env.NODE_ENV,
 });
