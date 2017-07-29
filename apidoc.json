@@ -1,0 +1,7 @@
+{
+  "name": "Tutor service",
+  "version": "0.0.1",
+  "description": "API documentation for tutor service",
+  "title": "Tutor API",
+  "url" : "http://localhost:3000/api"
+}
