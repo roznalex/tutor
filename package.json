@@ -1,6 +1,6 @@
 {
   "name": "tutor",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,10 @@
   },
   "dependencies": {
     "apidoc": "^0.17.6",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-winston": "^2.4.0",
+    "helmet": "^3.8.1",
     "lodash": "^4.17.4",
     "nconf": "^0.8.4",
     "winston": "^2.3.1"
