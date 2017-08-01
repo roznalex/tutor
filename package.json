@@ -29,6 +29,7 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "express-winston": "^2.4.0",
+    "glob": "^7.1.2",
     "helmet": "^3.8.1",
     "lodash": "^4.17.4",
     "nconf": "^0.8.4",

@@ -3,7 +3,8 @@ const express = require('express');
 const config = require('../config');
 const logger = require('../tools/logger');
 const initMiddleware = require('./middleware');
-const initRoutes = require('./routes');
+
+const { initRoutes } = require('./loaders');
 
 const app = express();
 
