@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "export NODE_ENV=dev && nodemon ./src",
+    "start": "node ./src",
     "generateDocs": "apidoc -i ./src -o apidoc/ -f .*\\.route.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

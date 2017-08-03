@@ -12,5 +12,5 @@ initMiddleware(app);
 initRoutes(app);
 
 app.listen(config.get('port'), () => {
-  logger.info(`Starting server on port: ${config.get('port')}`);
+  logger.info(`Server started on the port: ${config.get('port')}`);
 });
