@@ -4,11 +4,15 @@ FROM node:latest
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-ADD . /app
+# Cached Docker layers
+COPY package.json /app
+COPY package-lock.json /app
 
 # Install any needed packages specified in package.json
 RUN npm install
+
+# Bundle app source
+COPY . /app
 
 # Make port 3000 available to the world outside this container
 EXPOSE 3000

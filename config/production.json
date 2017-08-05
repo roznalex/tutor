@@ -3,5 +3,11 @@
   "logger": {
     "level": "verbose",
     "console": true
+  },
+  "db": {
+    "protocol": "mongodb",
+    "name": "prod-test",
+    "url": "localhost",
+    "port": "27017"
   }
 }
