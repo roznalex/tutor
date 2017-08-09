@@ -3,18 +3,16 @@ const mongoose = require('mongoose');
 const { logger } = require('../tools');
 
 module.exports = async (dbConfig) => {
-  const dbConnection = mongoose.connection;
-  const { protocol, name, url, port } = dbConfig;
-  const dbAddress = `${protocol}://${url}/${name}:${port}`;
+  const { url } = dbConfig;
 
   mongoose.Promise = global.Promise;
 
   try {
-    await mongoose.connect(dbAddress);
-    logger.info(`Db successfully connected: ${dbAddress}`);
+    await mongoose.connect(url);
+    logger.info(`Db successfully connected: ${url}`);
   } catch (err) {
     logger.error(`Db connection error: ${err}`);
   }
 
-  return Promise.resolve(dbConnection);
+  return Promise.resolve(mongoose.connection);
 };

@@ -5,9 +5,6 @@
     "console": true
   },
   "db": {
-    "protocol": "mongodb",
-    "name": "test",
-    "url": "localhost",
-    "port": "27017"
+    "url": "mongodb://db/dev"
   }
 }
