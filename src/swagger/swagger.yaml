@@ -1,0 +1,27 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Tutor service API
+basePath: '/'
+consumes:
+  - application/json
+  - application/vnd.api+json
+produces:
+  - application/json
+  - application/vnd.api+json
+
+parameters:
+
+paths:
+  /test:
+    get:
+      description: Test route
+      responses:
+        200:
+          description: OK
+
+  /test/bin:
+    get:
+      description: Something should happen
+
+definitions:
