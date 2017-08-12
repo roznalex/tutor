@@ -4,7 +4,10 @@
     "level": "verbose",
     "console": true
   },
-  "db": {
-    "url": "mongodb://db/dev"
+  "mongodb": {
+    "url": "mongodb://127.0.0.1/dev"
+  },
+  "redis": {
+    "url": "redis://127.0.0.1"
   }
 }

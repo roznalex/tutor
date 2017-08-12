@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const { logger } = require('../tools');
 
 module.exports = async (dbConfig) => {
+  if (!dbConfig) {
+    throw new Error('Db config is empty');
+  }
+
   const { url } = dbConfig;
 
   mongoose.Promise = global.Promise;

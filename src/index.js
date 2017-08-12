@@ -8,7 +8,7 @@ const { initRoutes, initModels } = require('./loaders');
 
 const app = express();
 
-dbConnect(config.get('db'));
+dbConnect(config.get('mongodb'));
 initMiddleware(app);
 initRoutes(app);
 initModels();

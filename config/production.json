@@ -4,7 +4,10 @@
     "level": "verbose",
     "console": true
   },
-  "db": {
-    "url": "mongodb://db/prod"
+  "mongodb": {
+    "url": "mongodb://mongo/prod"
+  },
+  "redis": {
+    "url": "redis://redis"
   }
 }

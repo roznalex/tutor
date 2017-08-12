@@ -1,12 +1,19 @@
 version: '3'
 services:
-  api:
+  web:
     build: ./
     ports:
       - 3000:3000
     depends_on:
-      - db
-  db:
+      - mongo
+      - redis
+  mongo:
     image: mongo:latest
+    ports:
+      - 27017:27017
     volumes:
       - ~/data/db:/data/db
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
