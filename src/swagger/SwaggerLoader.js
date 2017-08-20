@@ -1,7 +1,7 @@
 const jsYaml = require('js-yaml');
 const fs = require('fs');
 
-class SwaggerMiddlewareLoader {
+class SwaggerLoader {
   constructor(swaggerFilePath) {
     this.swaggerFilePath = swaggerFilePath;
   }
@@ -13,4 +13,4 @@ class SwaggerMiddlewareLoader {
   }
 }
 
-module.exports = SwaggerMiddlewareLoader;
+module.exports = SwaggerLoader;

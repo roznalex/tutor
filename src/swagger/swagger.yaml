@@ -10,18 +10,21 @@ produces:
   - application/json
   - application/vnd.api+json
 
-parameters:
-
 paths:
   /test:
     get:
       description: Test route
+      handler: 'testDatabaseConnection'
       responses:
         200:
           description: OK
 
-  /test/bin:
+  /test/error:
     get:
-      description: Something should happen
+      description: Test error handling
+      handler: 'testErrorResponse'
+      responses:
+        400:
+          description: Basic error
 
 definitions:
