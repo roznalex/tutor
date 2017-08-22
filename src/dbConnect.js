@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bluebird = require('bluebird');
 
 const { logger } = require('../tools');
 
@@ -9,7 +10,7 @@ module.exports = async (dbConfig) => {
 
   const { url } = dbConfig;
 
-  mongoose.Promise = global.Promise;
+  mongoose.Promise = bluebird;
 
   try {
     await mongoose.connect(url);

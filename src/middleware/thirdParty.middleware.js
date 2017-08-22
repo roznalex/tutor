@@ -2,6 +2,7 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const expressWinston = require('express-winston');
 const winston = require('winston');
+const passport = require('passport');
 
 module.exports = {
   init: (app) => {
@@ -20,5 +21,6 @@ module.exports = {
       expressFormat: true,
       colorize: false,
     }));
+    app.use(passport.initialize());
   },
 };

@@ -7,6 +7,8 @@ services:
     depends_on:
       - mongo
       - redis
+    environment:
+      - AUTH__SECRET=${TUTOR_AUTH_SECRET}
   mongo:
     image: mongo:latest
     ports:

@@ -14,7 +14,7 @@ paths:
   /test:
     get:
       description: Test route
-      handler: 'testDatabaseConnection'
+      operationId: 'testDatabaseConnection'
       responses:
         200:
           description: OK
@@ -22,9 +22,91 @@ paths:
   /test/error:
     get:
       description: Test error handling
-      handler: 'testErrorResponse'
+      operationId: 'testErrorResponse'
       responses:
         400:
           description: Basic error
 
+############### AUTH ################
+  /auth:
+    post:
+      description: Login
+      operationId: 'login'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/LoginBody'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/LoginSuccessResponse'
+
+  /auth/register:
+    post:
+      description: Register a new user
+      operationId: 'register'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/RegisterBody'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/RegisterSuccessResponse'
+
 definitions:
+
+  LoginBody:
+    type: object
+    required:
+      - email
+      - password
+    additionalProperties: {}
+    properties:
+      email:
+        type: string
+        format: email
+      password:
+        type: string
+        format: password
+
+  LoginSuccessResponse:
+    type: object
+    properties:
+      data:
+        type: object
+        properties:
+          jwt:
+            type: string
+
+  RegisterSuccessResponse:
+    type: boolean
+
+  RegisterBody:
+    type: object
+    required:
+      - email
+      - password
+    additionalProperties: {}
+    properties:
+      email:
+        type: string
+        format: email
+      password:
+        type: string
+        format: password
+      firstName:
+        type: string
+      lastName:
+        type: string
+      role:
+        type: string
+        enum:
+          - Mentor
+          - Student

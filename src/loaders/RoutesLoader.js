@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const logger = require('../../tools/logger');
 
 class RouteLoader {
   constructor(app, swaggerData, controllers) {
@@ -23,7 +24,7 @@ class RouteLoader {
 
         componentRoutes[component].push({
           path,
-          handler: options.handler,
+          handler: options.operationId,
           method: methodName,
         });
       });
@@ -49,10 +50,10 @@ class RouteLoader {
   getHandlerForRoute(componentName, routeOptions) {
     const handlerControllers = this.controllers
       .filter((controller) => {
-        const controllerMathes = controller.component === componentName;
+        const controllerMatches = controller.component === componentName;
         const hasHandler = _.isFunction(controller.instance[routeOptions.handler]);
 
-        return controllerMathes && hasHandler;
+        return controllerMatches && hasHandler;
       })
       .map(({ instance }) => instance);
 
@@ -90,6 +91,7 @@ class RouteLoader {
           },
         };
 
+        logger.error(err);
         res.json(errorJson);
       }
     };
