@@ -1,5 +1,4 @@
 const _ = require('lodash');
-const logger = require('../../tools/logger');
 
 class RouteLoader {
   constructor(app, swaggerData, controllers) {
@@ -71,7 +70,7 @@ class RouteLoader {
   }
 
   static getEndpointWrapper(handler) {
-    return async (req, res) => {
+    return async (req, res, next) => {
       try {
         const controllerResponse = await handler(req);
 
@@ -79,20 +78,7 @@ class RouteLoader {
           data: controllerResponse,
         });
       } catch (err) {
-        if (typeof err.status === 'number') {
-          res.status(err.status);
-        } else {
-          res.status(500);
-        }
-
-        const errorJson = {
-          error: {
-            message: err.message,
-          },
-        };
-
-        logger.error(err);
-        res.json(errorJson);
+        next(err);
       }
     };
   }
